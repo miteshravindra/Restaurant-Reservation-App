@@ -1,0 +1,108 @@
+ <div id="contact">
+    <div class="modal-header">
+        <h2 class="modal-title">Customer Contact</h2>
+    </div>
+    <div class="modal-body">
+         <form>
+		     <div class="content">
+		         <div class="row">
+		             <div class="form-group col-md-4 col-sm-4 col-xs-12">
+		                 <label><h4>Name</h4></label>
+		             </div>
+		             <div class="form-group col-md-4 col-sm-4 col-xs-12">
+		                 <label><h4>Confirmation Number</h4></label>
+		             </div>
+		             <div class="form-group col-md-4 col-sm-4 col-xs-12">
+		                 <label><h4>More Details</h4></label>
+		             </div>
+		         </div>
+		         <div ng-repeat="contact in contactsVm.contacts" >
+			         <div class="row">
+			             <div class="form-group col-md-4 col-sm-4 col-xs-12">
+			                 <label>{{contact.customer.name}}</label>
+			             </div>
+			             <div class="form-group col-md-4 col-sm-4 col-xs-12">
+			                 <label>{{contact.cnfCode}}</label>
+			             </div>
+			             <div class="form-group col-md-4 col-sm-4 col-xs-12">
+			                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" ng-click="contactsVm.showDetails($index)" > More Details</button>
+			             </div>
+			         </div>
+			         
+		
+		
+		     </div>
+		 </form>
+    </div>
+</div>
+
+
+
+<!-- customer details-->
+  <section>
+      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content popup-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <div class="row">
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                              <h3>CUSTOMER DETAILS</h3>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <div class="content">
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date">Date</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label for="date">{{contactsVm.customerDetails.date}}</label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="time">Time</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label for="time">{{contactsVm.customerDetails.time | date:'hh:mm a'}}</label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label>Name</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label>{{contactsVm.customerDetails.customer.name}}</label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="time">Phone</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label>{{contactsVm.customerDetails.customer.phone | phoneFilter}}</label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label>Email</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label>{{contactsVm.customerDetails.customer.email}}</label>
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>

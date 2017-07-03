@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app='plunker'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hotel Paradise</title>
+    <!-- Bootstrap file-->
+    <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap-theme.min.css">
+    <!-- custom css file-->
+    <link rel="stylesheet" type="text/css" href="styles/lib/simple-sidebar.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+<body>
+
+<div class="content">
+
+    <!-- header of the page-->
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Hotel Paradise</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-alt"></i> Reservations<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/make-reservation" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Make Reservation</a></li>
+                                <li><a href="#/delete-reservation" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Cancel Reservation</a></li>
+                                <li><a href="#/update-reservation" data-toggle="modal" data-target="#exampleModal3" data-whatever="@mdo">Update Reservation</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Others</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right active">
+                        <li><a data-toggle="modal" href="#/login" data-target="#login"><i class="fa fa-user"> Login</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <article>
+        <section ng-view>
+        </section>
+    </article>
+
+    <!--footer of page-->
+    <footer>
+        <div class="col-md-offset-3">© 2015, The Pitchers, All rights Reserved
+            <span class="col-md-offset-4"><i class="fa fa-google-plus"></i> <i class="fa fa-twitter"></i> <i class="fa fa-facebook"></i></span>
+        </div>
+    </footer>
+
+</div>
+
+<!-- JavaScripts libraries-->
+<script type="text/javascript" src="scripts/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="scripts/lib/bootstrap.min.js"></script>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<!-- AngularJs files-->
+<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+<script src="https://code.angularjs.org/1.4.3/angular-route.js"></script>
+<script src="https://code.angularjs.org/1.4.3/angular-messages.js"></script>
+<!-- Controller files-->
+<script src="app/app.js"></script>
+<script src="app/controller/reservation-controller.js"></script>
+<script src="app/controller/login-controller.js"></script>
+<!-- Services files-->
+<script src="services/reservation-services.js"></script>	
+<script src="services/login-services.js"></script>	
+
+</body>
+</html>

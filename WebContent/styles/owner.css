@@ -1,0 +1,102 @@
+/*body background*/
+body{
+    color: black;
+    background-repeat: no-repeat;
+    background-image: url("../images/London.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+/*form background*/
+.form-background{
+    background-color: rgba(255, 255, 255, 0.70);
+    color: black;
+    border-color: black;
+    border-width: 2px;
+}
+
+.submit{
+    width: 30%;
+}
+
+
+.modal-content{
+    width: 70%;
+    height: 80%;
+    margin-right: -30%;
+}
+
+.header{
+    position: relative;
+    margin-top: 2%;
+}
+
+.sidebar{
+    position: relative;
+    margin-top: -4%;
+}
+
+.display{
+    background-color: #428bca;
+    color: black;
+}
+
+.dataTables_paginate {
+    color: gold;
+}
+
+/*backgroud of popup*/
+.popup-content{
+    background-color: rgba(0, 0, 0, 0.46);
+    width: 100%;
+    color: gold;
+}
+
+/*circle layout*/
+.table1, .available{
+    border-radius: 50%;
+    width:200px;
+    height: 200px;
+}
+
+/*square layout*/
+.table2{
+    width:100px;
+    height:100px;
+}
+
+/*elliptical layout*/
+.table3{
+    width: 200px;
+    height: 100px;
+    -moz-border-radius: 100px / 50px;
+    -webkit-border-radius: 100px / 50px;
+    border-radius: 100px / 50px;
+}
+
+/*rectangel layout*/
+.table4{
+    width:200px;
+    height:100px;
+}
+
+/*layout color*/
+.table{
+    background: #428bca;
+}
+
+/*layout color change on booking*/
+input[type="checkbox"]:checked~div{
+    background: rgba(117, 0, 0, 0.61);
+}
+
+
+.table-centre{
+    padding-left: 10%;
+}
+
+/*color of collapse*/
+.collapse{
+    color: black;
+}

@@ -1,0 +1,114 @@
+/*modal for whole page*/
+*{
+    box-sizing: border-box;
+    position: relative;
+}
+
+/*body background settings*/
+body{
+    color: black;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../images/city.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/*Navbar*/
+.navbar{
+    margin-top: 3em;
+    border-width: thin;
+    border-color: #89744D;
+}
+
+.tablecolor{
+    background-color: gray;
+}
+
+/*modal adjustments*/
+.modal-content{
+    background-color: rgba(0, 0, 0, 0.65);
+    border: thin;
+    border-width: 2px;
+    border-color: goldenrod;
+    color: gold;
+    margin-top: 10em;
+}
+
+/*radial gradient for footer*/
+footer{
+    background-image: radial-gradient(ellipse,gold,black);
+    height: 4em;
+    margin-top: 53em;
+    position: fixed;
+    padding-top: 1em;
+    width: 100%;
+}
+
+.content-size{
+    width: 800px;
+    height:500px;
+}
+
+/*button color*/
+.btn-color{
+    background-color:#265a88;
+}
+
+/*sign in positioning*/
+.signup-outer{
+    margin-top: -2%;
+    margin-left: 61%;
+}
+
+
+/*mobile screen sign-up*/
+@media only screen and (max-width: 768px){
+    .signup-outer{
+        margin-top: -2%;
+        margin-left: 40%;
+    }
+}
+
+
+
+
+/*mobile screen sign-up*/
+@media only screen and (max-width: 480px){
+    .signup-outer{
+        margin-top: -2%;
+        margin-left: 20%;
+    }
+}
+
+
+
+/*beer image animation*/
+.animation {
+    margin-top: 8em;
+    margin-left: 2%;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: fixed;
+    background-image: url("../images/beer.jpg");
+    -webkit-animation-name: example;
+    -webkit-animation-duration: 10s;
+    animation-name: example;
+    animation-duration : 10s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    50%  {background-color:blue; left:0px; top:500px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    50%  {background-color:blue; left:0px; top:500px;}
+    100% {background-color:red; left:0px; top:0px;}
+}

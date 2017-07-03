@@ -1,0 +1,263 @@
+<div class="tab-pane">
+     <div class="modal-header">
+         <h2 class="modal-title">Reservation List</h2>
+     </div>
+     <div class="modal-body">
+         <form>
+             <div class="table-responsive">
+              	<input type="search" ng-model="reserveDetailsVm.searchText"  class="form-control search" placeholder="Please search here">
+                 <table  class="myTable table table-striped display">
+                     <thead>
+                     <tr>
+                         <th ng-click="reserveDetailsVm.sorter='cnfCode';reserveDetailsVm.reverse= !reserveDetailsVm.reverse;">CNF# <span class="glyphicon glyphicon-sort"></span></th>
+                         <th ng-click="reserveDetailsVm.sorter='customer.name';reserveDetailsVm.reverse= !reserveDetailsVm.reverse;">Name <span class="glyphicon glyphicon-sort"></span></th>
+                         <th ng-click="reserveDetailsVm.sorter='date';reserveDetailsVm.reverse= !reserveDetailsVm.reverse;">Date <span class="glyphicon glyphicon-sort"></span></th>
+                         <th ng-click="reserveDetailsVm.sorter='partySize';reserveDetailsVm.reverse= !reserveDetailsVm.reverse;"># <span class="glyphicon glyphicon-sort"></span></th>
+                         <th ng-click="reserveDetailsVm.sorter='id';reserveDetailsVm.reverse= !reserveDetailsVm.reverse;">Action</span></th>
+                         <th>Reservation</th>
+                     </tr>
+                     </thead>
+                     <tbody>
+                         <tr ng-repeat="item in reserveDetailsVm.people | filter:reserveDetailsVm.searchText | orderBy:reserveDetailsVm.sorter:reserveDetailsVm.reverse">
+                             <td>{{item.cnfCode}}</td>
+                             <td>{{item.customer.name}}</td>
+                             <td>{{item.date}}</td>
+                             <td>{{item.partySize}}</td>
+                             <td>
+                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" ng-click="reserveDetailsVm.showDetails($index)"> More Details</button>
+                             </td>
+                             <td>
+                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal6" ng-click="reserveDetailsVm.getLayout($index)">Assign Table</button>
+                             </td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
+         </form>
+     </div>
+     <div class="modal-footer">
+     	<a class="btn btn-primary submit" data-toggle="modal" data-target="#exampleModal1">Make a Reservation</a>
+     </div>
+</div>
+
+
+
+
+
+<!-- reservation details-->
+  <section>
+      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content popup-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <div class="row">
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                              <h3>RESERVATION DETAILS</h3>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <div class="content">
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date">Date</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label for="date">{{reserveDetailsVm.reservationDetails.date}}</label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="time">Time</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label for="time">{{reserveDetailsVm.reservationDetails.time | date:'hh:mm a'}}</label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label>Name</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label>{{reserveDetailsVm.reservationDetails.customer.name}}</label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="time">Phone</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label>{{reserveDetailsVm.reservationDetails.customer.phone | phoneFilter}}</label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label>Email</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label>{{reserveDetailsVm.reservationDetails.customer.email}}</label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label>Party Size</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label>{{reserveDetailsVm.reservationDetails.partySize}}</label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label>Special Needs</label>
+                                  </div>
+                                  <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                      <label for="date"> : </label>
+                                      <label>{{reserveDetailsVm.reservationDetails.specialNeeds}}</label>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+  
+  
+  <!-- seating layout-->
+  <section>
+      <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content popup-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <div class="row">
+                          <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                              <h3>SEATING LAYOUT</h3>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                        <div class="content table-centre" ng-repeat ="table in reserveDetailsVm.tables">
+                            <div class="form-group row">
+                                <label for="table1"><h4>Table {{table.id}}</h4></label>
+                                <div ng-if="table.status=='Reserved'">
+	                                <input type="radio" name="booking" ng-click="reserveDetailsVm.selectTable(table)" disabled> {{table.status}} <br>
+	                                <div class="table table2" id="table1" data-toggle="popover" data-trigger="hover" title="Table Details" data-content="This table is for 6\2 people. Click to reserve!"> </div>
+                                </div>
+                                <div ng-if="table.status=='Available'">
+	                                <input type="radio" name="booking" ng-click="reserveDetailsVm.selectTable(table)">  {{table.status}}<br>
+	                                <div class="table table1" id="table1" data-toggle="popover" data-trigger="hover" title="Table Details" data-content="This table is for 6\2 people. Click to reserve!"> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <td>
+                            <button type="submit" class="btn btn-primary" data-toggle="modal" ng-click="reserveDetailsVm.reserveTable()">Assign Table</button>
+                        </td>
+                    </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  
+  
+  <!--make reservatoin-->
+        <section >
+            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content popup-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <h3>MAKE RESERVATION</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <form name="crtRsrvForm" novalidate>
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <label for="date">Date</label>
+                                            <input type="date" name="date" class="form-control" id="date" data-ng-model="reserveDetailsVm.newReserve.date" required>
+                                            <div ng-messages="crtRsrvForm.date.$error" class="has-error" ng-if="crtRsrvForm.date.$dirty">
+                                            	<p ng-message="required">Date is required</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <label for="time">Time</label>
+                                            <input type="time" name="time" class="form-control" id="time" data-ng-model="reserveDetailsVm.newReserve.time" required>
+                                             <div ng-messages="crtRsrvForm.time.$error" class="has-error" ng-if="crtRsrvForm.time.$dirty">
+                                            	<p ng-message="required">Time is required</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reserve-name">Name</label>
+                                        <input type="text" name="custname" class="form-control" id="reserve-name" data-ng-model="reserveDetailsVm.newReserve.customer.name" required>
+                                        <div ng-messages="crtRsrvForm.custname.$error" class="has-error" ng-if="crtRsrvForm.custname.$dirty">
+                                            <p ng-message="required">Name is required</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input type="text" name ="phone" class="form-control" id="phone" placeholder="Enter Your Phone" data-ng-model="reserveDetailsVm.newReserve.customer.phone" maxlength="10" required>
+                                        <div ng-messages="crtRsrvForm.phone.$error" class="has-error" ng-if="crtRsrvForm.phone.$dirty">
+                                            <p ng-message="required">Phone is required</p>
+                                            <p ng-message="maxlenght">Phone is required</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reserve-email">Email</label>
+                                        <input type="email" name="email" class="form-control" id="reserve-email" placeholder="example@domain.com" data-ng-model="reserveDetailsVm.newReserve.customer.email" required>
+                                        <div ng-messages="crtRsrvForm.email.$error" class="has-error" ng-if="crtRsrvForm.email.$dirty">
+                                            <p ng-message="required">Email is required</p>
+                                            <p ng-message="email">Email is invalid</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <label for="reserve-party-size">Party Size</label>
+                                            <input type="number" name="partySize" class="form-control" id="reserve-party-size" placeholder="# Guests" data-ng-model="reserveDetailsVm.newReserve.partySize" required>
+                                            <div ng-messages="crtRsrvForm.partySize.$error" class="has-error" ng-if="crtRsrvForm.partySize.$dirty">
+	                                            <p ng-message="required">Party Size is required</p>
+                                        	</div>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <label for="reserve-special-needs">Special Needs</label>
+                                            <input class="form-control" name="specialNeeds" id="reserve-special-needs" placeholder="e.g. Birthday, Anniversary etc." data-ng-model="reserveDetailsVm.newReserve.specialNeeds" required>
+                                            <div ng-messages="crtRsrvForm.specialNeeds.$error" class="has-error" ng-if="crtRsrvForm.specialNeeds.$dirty">
+	                                            <p ng-message="required">Special Needs can not be empty</p>
+                                        	</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+		                            <button type="submit" ng-disabled="crtRsrvForm.$invalid" ng-click="reserveDetailsVm.makeReservation(crtRsrvForm.$valid)" data-dismiss="modal" class="btn btn-primary submit">Submit</button>
+		                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                       			</div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+  	
+ 
+  

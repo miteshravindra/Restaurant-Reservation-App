@@ -1,0 +1,36 @@
+<!--Cancel Customer Reservation -->
+        <section>
+            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <div class="row">
+                                <div class="col-md-7 col-sm-7 col-xs-7 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <h3>CANCEL RESERVATION</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <form  name="cancelRsrvFrom" novalidate>
+                                <div class="content">
+                                    <div class="form-group">
+                                        <label for="name">Confirmation Number</label>
+                                        <input type="text" class="form-control" name="number" placeholder="Enter Your Name" data-ng-model="reserveVm.cnfCode" required>
+                                        <div ng-messages="cancelRsrvFrom.number.$error" class="has-error" ng-if="cancelRsrvFrom.number.$dirty">
+                                          	<p ng-message="required">Confirmation number is required</p>
+                                          	<p ng-message="number">Confirmation number is required</p>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+		                            <button type="submit" ng-disabled="cancelRsrvFrom.$invalid" class="btn btn-primary submit" data-dismiss="modal">Cancel Reservation</button>
+		                            <button type="button" class="btn btn-default" ng-click="reserveVm.cancelReservation(cancelRsrvFrom.$valid)" data-dismiss="modal">Close</button>
+                        		</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       

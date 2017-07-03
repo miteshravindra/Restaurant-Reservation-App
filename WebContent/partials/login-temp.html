@@ -1,0 +1,41 @@
+<section>
+    <div class="row">
+        <div class="col-md-3 col-sm-2 col-xs-3 col-md-offset-6 col-sm-offset-4 col-xs-offset-4">
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog signup-outer" role="document">
+                    <div class="modal-content signup-form">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:gold"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Owner Account</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form data-ng-submit="loginVm.authenticate(loginForm.$valid)" name="loginForm" novalidate>
+                                <div class="content">
+                                    <div class="form-group">
+                                        <label for="owner-email">Email</label>
+                                        <input type="email" name="email" class="form-control" id="owner-email" placeholder="example@domain.com" data-ng-model="loginVm.login.email" required>
+                                        <div ng-messages="loginForm.email.$error" class="has-error" ng-if="loginForm.email.$dirty">
+                                          	<p ng-message="required">Email is required</p>
+                                          	<p ng-message="email">Email is invalid</p>
+                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password" class="form-control" id="password" data-ng-model="loginVm.login.password" required>
+                                        <div ng-messages="loginForm.password.$error" class="has-error" ng-if="loginForm.password.$dirty">
+                                            	<p ng-message="required">Password is required</p>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                	<p class="has-error">{{loginVm.message}}</p>
+                            		<button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-primary">Sign In</button>
+                        		</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
