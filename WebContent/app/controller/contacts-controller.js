@@ -15,7 +15,7 @@
 		data.forEach(function(entry){
 			entry.customer.time = new Date(entry.customer.time);
 		});
-		contactsVm.contacts = da;
+		contactsVm.contacts = data;
 		console.log(data);
     }, function(err) {
       console.log(err);
